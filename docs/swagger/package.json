@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "",
   "scripts": {
-    "start": "LIVERELOAD_PORT=35729 nodemon --watch swagger.yaml index.mjs"
+    "start": "cross-env LIVERELOAD_PORT=35729 nodemon --watch swagger.yaml index.mjs"
   },
   "license": "ISC",
   "dependencies": {
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "connect-livereload": "catalog:",
+    "cross-env": "^7.0.3",
     "livereload": "catalog:",
     "nodemon": "catalog:"
   }
