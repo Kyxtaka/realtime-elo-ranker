@@ -14,6 +14,6 @@ async function bootstrap() {
   ] 
   }); // allow Postman client, swagger local, and vps swagger
   app.useGlobalPipes(new ValidationPipe({transform: true}));
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 8080);
 }
 bootstrap();
