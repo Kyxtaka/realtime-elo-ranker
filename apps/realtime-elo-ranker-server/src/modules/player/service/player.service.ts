@@ -1,13 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Injectable} from '@nestjs/common';
 import { PlayerModel } from '../model/player.model';
-import { Player } from '../interfaces/player.interface';
 import { PlayerDto } from '../dto/player.dto';
 
 @Injectable()
 export class PlayerService {
 
-    private players: Player[];
+    private players: PlayerModel[];
 
     constructor() {
         this.players = [];
@@ -17,7 +16,7 @@ export class PlayerService {
         this.players.push(player);
     }
 
-    public findAllPlayers(): Player[] {
+    public getAllPlayers(): PlayerModel[] {
         return this.players;
     }
 
@@ -37,6 +36,4 @@ export class PlayerService {
         const player = new PlayerModel(dto.id, 0);
         return player;
     }
-
-
 }
