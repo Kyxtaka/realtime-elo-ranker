@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Player } from '../interfaces/player.interface';
+import { PlayerInrterface } from '../interfaces/player.interface';
 
-export class PlayerModel implements Player {
+export class PlayerModel implements PlayerInrterface {
     id: string;
     rank: number;
 
-    constructor(id: string, rank: number) {
+    constructor(id: string, rank?: number) {
         this.id = id;
-        this.rank = rank;
+        this.rank = rank ?? 1000;
     }
 
     getId(): string {
@@ -24,5 +24,12 @@ export class PlayerModel implements Player {
 
     setId(id: string): void {
         this.id = id;
+    }
+
+    convertToDto() {
+        return {
+            id: this.id,
+            rank: this.rank,
+        };
     }
 }

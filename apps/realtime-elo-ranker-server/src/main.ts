@@ -2,6 +2,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { CustomHttpException } from './common/exceptions/custom-http.exception';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -13,7 +14,15 @@ async function bootstrap() {
     'http://localhost:3002', // allow local frontend dev server
   ] 
   }); // allow Postman client, swagger local, and vps swagger
-  app.useGlobalPipes(new ValidationPipe({transform: true}));
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true,
+    exceptionFactory: (errors) => {
+      const messages = errors
+        .flatMap(e => Object.values(e.constraints || {}))
+        .join(', ');
+      throw new CustomHttpException(400, `${messages}`);
+    }
+  }));
   await app.listen(process.env.PORT ?? 8080);
 }
 bootstrap();

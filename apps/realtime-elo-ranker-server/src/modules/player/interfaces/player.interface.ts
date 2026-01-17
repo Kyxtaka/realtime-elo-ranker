@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-export interface Player {
+export interface PlayerInrterface {
     id: string;
     rank?: number;
 
