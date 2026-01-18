@@ -12,6 +12,7 @@ export class PlayerController {
     constructor(private readonly playerService: PlayerService) {}
 
     @Get()
+    @HttpCode(200)
     getAllPlayers(): PlayerDto[] {
         const players: PlayerModel[] | ErrorModel = this.playerService.getAllPlayers();
         if (players instanceof ErrorModel) {
@@ -24,7 +25,7 @@ export class PlayerController {
     @Post()
     @HttpCode(201)
     addPlayer(@Body() createPlayerDto: CreatePlayerDto): PlayerDto {
-        const player: PlayerModel = this.playerService.convertCretateDtoToModel(createPlayerDto);
+        const player: PlayerModel = this.playerService.convertCreateDtoToModel(createPlayerDto);
         const result = this.playerService.addPlayer(player);
         if (result instanceof ErrorModel) {
             throw new CustomHttpException(result.code, result.getError().message);

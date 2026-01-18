@@ -18,18 +18,21 @@ export class RankingService {
     }
 
     public getRanking(): PlayerModel[] | ErrorModel {
-        const needUpdateRanking: boolean = this.ranking.length !== this.playerService.getPlayerCount(); 
-        if (needUpdateRanking) {
-            const allPlayers = this.playerService.getAllPlayers();
-            if (allPlayers instanceof ErrorModel) {
-                return allPlayers;
-            }
-            this.ranking = allPlayers.sort((a: PlayerModel, b: PlayerModel) => b.getRank() - a.getRank());
+        // const needUpdateRanking: boolean = this.ranking.length !== this.playerService.getPlayerCount(); 
+        // if (needUpdateRanking) {
+        //     if (allPlayers instanceof ErrorModel) {
+        //         return allPlayers;
+        //     }
+        // }
+        // if (this.ranking.length === 0) {
+        //     return this.errorService.createError(404, "Le classement n'est pas disponible car aucun joueur n'existe");
+        // }
+        const allPlayers = this.playerService.getAllPlayers();
+        if (allPlayers instanceof ErrorModel) {
+             return this.errorService.createError(404, "Le classement n'est pas disponible car aucun joueur n'existe");
         }
-        if (this.ranking.length === 0) {
-            return this.errorService.createError(404, "Le classement n'est pas disponible car aucun joueur n'existe");
-        }
-        console.log(this.ranking);
+        this.ranking = allPlayers.sort((a: PlayerModel, b: PlayerModel) => b.getRank() - a.getRank());
+        // console.log(this.ranking);
         return this.ranking;
     }
 }

@@ -28,7 +28,7 @@ export class PlayerService {
         return player;
     }
 
-    // Partira dans ranking service avec pour route @get api/ranking 
+    // // Partira dans ranking service avec pour route @get api/ranking 
     public getAllPlayers(): PlayerModel[] | ErrorModel {
         if (this.players.length === 0) {
             return this.errorService.createError(404, "Il y a aucun joueur d'enregistré");
@@ -48,12 +48,35 @@ export class PlayerService {
         return player;
     }
 
-    public convertCretateDtoToModel(dto: CreatePlayerDto): PlayerModel {
-        const player: PlayerModel = new PlayerModel(dto.id);
+    public convertCreateDtoToModel(dto: CreatePlayerDto): PlayerModel {
+        const meanRank = this.getMeanRank();
+        console.log("Mean rank lors de la création du joueur : ", meanRank);
+        const player: PlayerModel = new PlayerModel(dto.id, meanRank != 0 ? meanRank : 1000);
         return player;
+    }
+
+    public findPlayerById(id: string): PlayerModel | null {
+        const player = this.players.find((p: PlayerModel) => p.getId() === id);
+        return player ?? null;
+    }
+
+    public updatePlayerRank(player: PlayerModel, newRank: number): void {
+        player.setRank(newRank);
     }
 
     public getPlayerCount(): number {
         return this.playerCount;
+    }
+
+    public checkIfPlayerExists(id: string): boolean {
+        return this.players.some((p: PlayerModel) => p.getId() === id);
+    }
+
+    public getMeanRank(): number {
+        if (this.players.length === 0) {
+            return 0;
+        }
+        const totalRank = this.players.reduce((sum, player) => sum + player.getRank(), 0);
+        return totalRank / this.players.length;
     }
 }

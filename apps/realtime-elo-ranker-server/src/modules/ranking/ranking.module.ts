@@ -9,5 +9,6 @@ import { ErrorModule } from '../error/error.module';
   controllers: [RankingController],
   providers: [RankingService],
   imports: [PlayerModule, ErrorModule],
+  exports: [RankingService],
 })
 export class RankingModule {}

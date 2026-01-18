@@ -5,9 +5,9 @@ export class PlayerModel implements PlayerInrterface {
     id: string;
     rank: number;
 
-    constructor(id: string, rank?: number) {
+    constructor(id: string, rank: number) {
         this.id = id;
-        this.rank = rank ?? 1000;
+        this.rank = rank;
     }
 
     getId(): string {
