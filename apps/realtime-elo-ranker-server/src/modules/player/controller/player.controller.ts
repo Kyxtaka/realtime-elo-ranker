@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+// import { Param, Delete } from '@nestjs/common'; 
 import { Body, Controller, Get, Post, HttpCode } from '@nestjs/common';
 import { PlayerService } from '../service/player.service';
 import { CreatePlayerDto } from '../dto/createPlayer.dto';
@@ -32,4 +33,14 @@ export class PlayerController {
         }
         return this.playerService.convertToDto(result);
     }
+
+    // @Delete(':id')
+    // @HttpCode(200)
+    // removePlayer(@Param('id') id: string): {message: string} {
+    //     const result = this.playerService.removePlayer(id);
+    //     if (result instanceof ErrorModel) {
+    //         throw new CustomHttpException(result.code, result.getError().message);
+    //     }
+    //     return {message: `Le joueur avec l'id ${id} a été supprimé avec succès.`};
+    // }
 }

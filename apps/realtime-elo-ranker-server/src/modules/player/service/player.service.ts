@@ -5,6 +5,11 @@ import { PlayerDto } from '../dto/player.dto';
 import { ErrorModel, } from '../../error/model/error.model';
 import { ErrorService } from '../../error/services/error/error.service';
 import { CreatePlayerDto } from '../dto/createPlayer.dto';
+import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
+import  { PlayerEntity } from '../entity/player.entity';
+import { Repository } from 'typeorm/repository/Repository';
+import { InjectRepository } from '@nestjs/typeorm';
+// import { Repository } from 'typeorm';
 
 @Injectable({scope: Scope.DEFAULT}) // Singleton
 export class PlayerService {
@@ -13,9 +18,37 @@ export class PlayerService {
     private playerCount: number = 0;
 
     constructor(
+        @InjectRepository(PlayerEntity)
+        private playerRepository: Repository<PlayerEntity>,
+
         private errorService: ErrorService,
+        private eventEmitter: EventEmitter2
     ) {
         this.players = [];
+    }
+
+    async findAllPlayersFromDB(): Promise<PlayerModel[] | ErrorModel> {
+        const playerEntities: PlayerEntity[] = await this.playerRepository.find();
+        if (playerEntities.length === 0) {
+            return this.errorService.createError(404, "Il y a aucun joueur d'enregistré dans la base de données");
+        }
+        const players: PlayerModel[] = playerEntities.map((entity: PlayerEntity) => {
+            return new PlayerModel(entity.id, entity.rank);
+        });
+        return players;
+    }
+
+    async savePlayerToDB(player: PlayerModel): Promise<PlayerModel | ErrorModel> {
+        const playerEntity = new PlayerEntity();
+        playerEntity.id = player.getId();
+        playerEntity.rank = player.getRank();
+        try {
+            await this.playerRepository.save(playerEntity);
+            return player;
+        } catch (error) {
+            console.error('Erreur lors de la sauvegarde du joueur dans la base de données : ', error);
+            return this.errorService.createError(500, "Erreur lors de l'enregistrement du joueur dans la base de données");
+        }
     }
 
     public addPlayer(player: PlayerModel): PlayerModel | ErrorModel {
@@ -25,6 +58,9 @@ export class PlayerService {
         }
         this.players.push(player);
         this.playerCount++;
+        this.eventEmitter.emit(
+            'player.created', player
+        );
         return player;
     }
 
@@ -78,5 +114,29 @@ export class PlayerService {
         }
         const totalRank = this.players.reduce((sum, player) => sum + player.getRank(), 0);
         return totalRank / this.players.length;
+    }
+
+    public removePlayer(id: string): ErrorModel | null {
+        console.log("Suppression du joueur avec l'id : ", id);
+        const playerIndex = this.players.findIndex((p: PlayerModel) => p.getId() === id);
+        console.log("Index du joueur trouvé : ", playerIndex);
+        if (playerIndex === -1) {
+            return this.errorService.createError(404, "Le joueur n'existe pas");
+        }   
+        const [removedPlayer] = this.players.splice(playerIndex, 1);
+        this.playerCount--;
+        this.eventEmitter.emit(
+            'player.removed', removedPlayer
+        );
+        return null;
+    }
+    @OnEvent('player.created') // test event listener
+    handlePlayerCreatedEvent(payload: PlayerModel) {
+        console.log(`Événement reçu : Joueur créé avec l'ID ${payload.getId()} et le rang ${payload.getRank()}`);
+    }
+
+    @OnEvent('ranking.updated') // test event listener
+    handleRankingUpdatedEvent(payload: {playerId: string, newRank: number}) {
+        console.log(`Événement reçu : Classement mis à jour pour le joueur ${payload.playerId} avec le nouveau rang ${payload.newRank}`);
     }
 }
