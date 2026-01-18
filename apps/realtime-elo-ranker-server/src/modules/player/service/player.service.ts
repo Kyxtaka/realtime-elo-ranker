@@ -5,6 +5,7 @@ import { PlayerDto } from '../dto/player.dto';
 import { ErrorModel, } from '../../error/model/error.model';
 import { ErrorService } from '../../error/services/error/error.service';
 import { CreatePlayerDto } from '../dto/createPlayer.dto';
+import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
 
 @Injectable({scope: Scope.DEFAULT}) // Singleton
 export class PlayerService {
@@ -14,6 +15,7 @@ export class PlayerService {
 
     constructor(
         private errorService: ErrorService,
+        private eventEmitter: EventEmitter2
     ) {
         this.players = [];
     }
@@ -25,6 +27,9 @@ export class PlayerService {
         }
         this.players.push(player);
         this.playerCount++;
+        this.eventEmitter.emit(
+            'player.created', player
+        );
         return player;
     }
 
@@ -78,5 +83,15 @@ export class PlayerService {
         }
         const totalRank = this.players.reduce((sum, player) => sum + player.getRank(), 0);
         return totalRank / this.players.length;
+    }
+
+    @OnEvent('player.created') // test event listener
+    handlePlayerCreatedEvent(payload: PlayerModel) {
+        console.log(`Événement reçu : Joueur créé avec l'ID ${payload.getId()} et le rang ${payload.getRank()}`);
+    }
+
+    @OnEvent('ranking.updated') // test event listener
+    handleRankingUpdatedEvent(payload: {playerId: string, newRank: number}) {
+        console.log(`Événement reçu : Classement mis à jour pour le joueur ${payload.playerId} avec le nouveau rang ${payload.newRank}`);
     }
 }
