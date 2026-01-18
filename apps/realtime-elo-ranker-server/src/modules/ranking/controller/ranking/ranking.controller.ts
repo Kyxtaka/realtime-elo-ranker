@@ -59,10 +59,11 @@ export class RankingController {
 
             this.eventEmitter.on('ranking.updated', rankingUpdatedHandler);
             this.eventEmitter.on('player.created', rankingUpdatedHandler);
-
+            this.eventEmitter.on('player.removed', rankingUpdatedHandler);
             return () => {
                 this.eventEmitter.off('ranking.updated', rankingUpdatedHandler);
                 this.eventEmitter.off('player.created', rankingUpdatedHandler);
+                this.eventEmitter.off('player.removed', rankingUpdatedHandler);
             };
         });
     }
