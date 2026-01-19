@@ -11,7 +11,7 @@ export const databaseProviders = [
         host: 'db-ovh.hikarizsu.fr',
         port: 3893,
         username: 'root',
-        password: 'ThIsIsIsntS3cur3d ',
+        password: 'ThIsIsIsntS3cur3d',
         database: 'TPNESTJS',
         entities: [
             __dirname + '/../**/*.entity{.ts,.js}',

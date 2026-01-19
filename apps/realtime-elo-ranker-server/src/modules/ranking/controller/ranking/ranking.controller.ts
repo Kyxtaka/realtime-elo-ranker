@@ -20,8 +20,8 @@ export class RankingController {
 
     @Get()
     @HttpCode(200)
-    getRanking(): PlayerDto[] {
-        const ranking: PlayerModel[] | ErrorModel = this.rankingService.getRanking();
+    async getRanking(): Promise<PlayerDto[]> {
+        const ranking: PlayerModel[] | ErrorModel = await this.rankingService.getRanking();
         if (ranking instanceof ErrorModel) {
             throw new CustomHttpException(ranking.getCode(), ranking.getError().message);
         }

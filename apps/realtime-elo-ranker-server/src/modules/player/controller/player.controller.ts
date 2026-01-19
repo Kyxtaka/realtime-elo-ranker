@@ -14,8 +14,8 @@ export class PlayerController {
 
     @Get()
     @HttpCode(200)
-    getAllPlayers(): PlayerDto[] {
-        const players: PlayerModel[] | ErrorModel = this.playerService.getAllPlayers();
+    async getAllPlayers(): Promise<PlayerDto[]> {
+        const players: PlayerModel[] | ErrorModel = await this.playerService.getAllPlayers();
         if (players instanceof ErrorModel) {
             throw new CustomHttpException(players.code, players.getError().message);
         }
@@ -25,9 +25,9 @@ export class PlayerController {
 
     @Post()
     @HttpCode(201)
-    addPlayer(@Body() createPlayerDto: CreatePlayerDto): PlayerDto {
-        const player: PlayerModel = this.playerService.convertCreateDtoToModel(createPlayerDto);
-        const result = this.playerService.addPlayer(player);
+    async addPlayer(@Body() createPlayerDto: CreatePlayerDto): Promise<PlayerDto> {
+        const player: PlayerModel = await this.playerService.convertCreateDtoToModel(createPlayerDto);
+        const result = await this.playerService.addPlayer(player);
         if (result instanceof ErrorModel) {
             throw new CustomHttpException(result.code, result.getError().message);
         }
