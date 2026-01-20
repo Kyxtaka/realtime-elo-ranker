@@ -1,24 +1,20 @@
 {
   "name": "realtime-elo-ranker",
   "version": "1.0.1",
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "apps:client:dev": "pnpm run --filter ./apps/realtime-elo-ranker-client dev",
+    "apps:server:dev": "pnpm run --filter ./apps/realtime-elo-ranker-server start:dev",
     "apps:api-mock:start": "pnpm run --filter ./apps/realtime-elo-ranker-api-mock start",
-    "apps:server:dev": "cd ./apps/realtime-elo-ranker-server && npm run start:dev",
-    "apps:server:start": "cd ./apps/realtime-elo-ranker-server && npm run start",
     "libs:ui:build": "pnpm run --filter ./libs/ui build",
     "libs:ui:test": "pnpm run --filter ./libs/ui test",
     "docs:swagger:start": "pnpm run --filter ./docs/swagger start"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "generate-react-cli": "catalog:",
-    "motion": "catalog:",
-    "next": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "^5.9.3",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "eslint": "^9.18.0",
+    "prettier": "^3.4.2"
   }
 }

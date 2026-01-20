@@ -25,7 +25,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       ignoreErrors: false,
     }),
     TypeOrmModule.forRoot({
-        type: 'sqlite',
+        // type: 'sqlite',
+        type: 'better-sqlite3',
         database: './databases/TPNESTJS.db',
         entities: [__dirname + '/modules/**/*.entity{.ts,.js}'], // ou juste importer les Classe entite 
         synchronize: true,
