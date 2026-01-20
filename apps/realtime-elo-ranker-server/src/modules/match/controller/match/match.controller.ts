@@ -3,35 +3,28 @@ import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { CreateMatchDto } from '../../dto/createMatch.dto';
 import { MatchService } from '../../services/match/match.service';
 import { CustomHttpException } from '../../../../common/exceptions/custom-http.exception'; 
-import { PlayerService } from '../../../player/service/player.service';
 import { ErrorService } from '../../../error/services/error/error.service';
 import { MatchResultDto } from '../../dto/matchResult.dto';
+import { MatchModel } from '../../model/match.model';
 
 @Controller('match')
 export class MatchController {
 
     constructor(
         private matchService: MatchService,
-        private playerService: PlayerService,
         private errorService: ErrorService
     ) { }
 
     @Post()
     @HttpCode(200)
-    async createMatch(@Body() createMatchDto: CreateMatchDto): Promise<MatchResultDto> {
-        const matchModel = this.matchService.convertToModel(createMatchDto);
-        const winnerPlayerExist = await this.playerService.checkIfPlayerExists(matchModel.getWinnerId());
-        const loserPlayerExist = await this.playerService.checkIfPlayerExists(matchModel.getLoserId());
-        if (!winnerPlayerExist || !loserPlayerExist) {
-            const error = this.errorService.createError(422, "Soit le gagnant, soit le perdant indiqué n'existe pas.");
+    public async createMatch(@Body() createMatchDto: CreateMatchDto): Promise<MatchResultDto> {
+        // convertion du DTO en modèle (+ vérification de l'existance joueurs)
+        const match: MatchModel | null = await this.matchService.convertToModel(createMatchDto);
+        if (!match) {
+            const error = this.errorService.createError(500, "Erreur lors de la déclaration du match.");
             throw new CustomHttpException(error.getCode(), error.getError().message);
         }
-        await this.matchService.updatePlayerRanks(matchModel);
-        const winnerPlayer = await this.playerService.findPlayerByIdInDB(matchModel.getWinnerId());
-        const loserPlayer = await this.playerService.findPlayerByIdInDB(matchModel.getLoserId());
-        return {
-            winner: winnerPlayer?.convertToDto(),
-            loser: loserPlayer?.convertToDto()
-        };  
+        const declaredMatch: MatchModel = await this.matchService.declareNewMatch(match);
+        return this.matchService.convertToDto(declaredMatch);
     }
 }

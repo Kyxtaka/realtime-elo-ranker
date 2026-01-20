@@ -1,5 +1,10 @@
 # TP dév avance Nathan Randriantsoa
+## Requirement
 
+- node : v24.11.1 (node 24)
+- npm : v10.8.3 (npm 8)
+- pnpm : v10.25.0 (pnpm 10
+)
 ## Init du projet nest
 ### conflit de compilation de module et resolution de module
 
@@ -9,6 +14,7 @@ problème : depiuis les version recente de node, le nest cli creer des projet ty
 Pour resoudre ce problème, et offrir un environnement stable qui marcherai sur n'importe quelle machine. J'ai modifier le fichier .ts pour utilise `commonJS` pour la résolution de module.
 
 ### Probleme avec TypeORM, driver sqlite, pnpm 
+TypeORM gère mal la resolution de dépendence pour les driver sqlite et bettersql. Cela est du au fait que typeorm/sqlite ne comprend pas la gestion des dépendence par lien symbolique avec pnpm, il cherche le module natif mais ne le trouve pas du coup.
 
 ### Solution : Utiliser pnpm pour le client, npm pour l'api
 
@@ -82,11 +88,42 @@ npm run apps:server:start
 npm run start
 ```
 
+## Tests
+pour lancer les test
+```bash
+# Tous les tests
+npm test
+
+# Tests unitaires uniquement
+npm test -- --testPathPattern="\.spec\.ts$" --testPathIgnorePatterns="test/"
+
+# E2E uniquement
+npm run test:e2e
+
+# Avec couverture
+npm test -- --coverage
+
+# Mode watch complet
+npm test -- --watch
+```
+
+## Simulateur de déclaration de match : 
+Pour lancer le simulateur de match lancer les commande suivante depuis la racine du projet
+```bash
+cd ./apps/realtime-elo-ranker-simulator
+npm install
+node index.js
+```
+
+*si package.json* non existant ou module axios non existant
+```bash
+npm install axios
+```
 
 
+## 
 
-
-#### note (A skip) 
+#### note (A skip car pas important) 
 Comme 
 Ajout des dependance au projet (fonctionne pas car typeORM ne trouve pas sqlite)
 Si les fichier package.json est pas la 
