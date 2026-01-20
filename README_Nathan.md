@@ -88,7 +88,7 @@ npm run apps:server:start
 npm run start
 ```
 
-## TEsts
+## Tests
 pour lancer les test
 ```bash
 # Tous les tests
@@ -107,11 +107,23 @@ npm test -- --coverage
 npm test -- --watch
 ```
 
+## Simulateur de déclaration de match : 
+Pour lancer le simulateur de match lancer les commande suivante depuis la racine du projet
+```bash
+cd ./apps/realtime-elo-ranker-simulator
+npm install
+node index.js
+```
+
+*si package.json* non existant ou module axios non existant
+```bash
+npm install axios
+```
 
 
+## 
 
-
-#### note (A skip) 
+#### note (A skip car pas important) 
 Comme 
 Ajout des dependance au projet (fonctionne pas car typeORM ne trouve pas sqlite)
 Si les fichier package.json est pas la 
