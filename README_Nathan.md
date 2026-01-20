@@ -1,5 +1,10 @@
 # TP dév avance Nathan Randriantsoa
+## Requirement
 
+- node : v24.11.1 (node 24)
+- npm : v10.8.3 (npm 8)
+- pnpm : v10.25.0 (pnpm 10
+)
 ## Init du projet nest
 ### conflit de compilation de module et resolution de module
 
@@ -9,6 +14,7 @@ problème : depiuis les version recente de node, le nest cli creer des projet ty
 Pour resoudre ce problème, et offrir un environnement stable qui marcherai sur n'importe quelle machine. J'ai modifier le fichier .ts pour utilise `commonJS` pour la résolution de module.
 
 ### Probleme avec TypeORM, driver sqlite, pnpm 
+TypeORM gère mal la resolution de dépendence pour les driver sqlite et bettersql. Cela est du au fait que typeorm/sqlite ne comprend pas la gestion des dépendence par lien symbolique avec pnpm, il cherche le module natif mais ne le trouve pas du coup.
 
 ### Solution : Utiliser pnpm pour le client, npm pour l'api
 

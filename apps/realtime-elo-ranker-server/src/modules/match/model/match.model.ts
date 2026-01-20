@@ -1,24 +1,34 @@
+import { PlayerModel } from "../../player/model/player.model";
+import { MatchResultDto } from "../dto/matchResult.dto";
+
 /* eslint-disable prettier/prettier */
 export class MatchModel {
-    winner: string;
-    loser: string;
+    winner: PlayerModel;
+    loser: PlayerModel;
     draw: boolean;
 
-    constructor(winner: string, loser: string, draw: boolean) {
+    constructor(winner: PlayerModel, loser: PlayerModel, draw: boolean) {
         this.winner = winner;
         this.loser = loser;
         this.draw = draw;
     }
 
-    getWinnerId(): string {
+    getWinner(): PlayerModel {
         return this.winner;
     }
 
-    getLoserId(): string {
+    getLoser(): PlayerModel {
         return this.loser;
     }
 
     isDraw(): boolean {
         return this.draw;
+    }
+
+    convertToDto(): MatchResultDto {
+        return {
+            winner: this.winner.convertToDto(),
+            loser: this.loser.convertToDto()
+        };
     }
 }
