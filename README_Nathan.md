@@ -88,6 +88,25 @@ npm run apps:server:start
 npm run start
 ```
 
+## TEsts
+pour lancer les test
+```bash
+# Tous les tests
+npm test
+
+# Tests unitaires uniquement
+npm test -- --testPathPattern="\.spec\.ts$" --testPathIgnorePatterns="test/"
+
+# E2E uniquement
+npm run test:e2e
+
+# Avec couverture
+npm test -- --coverage
+
+# Mode watch complet
+npm test -- --watch
+```
+
 
 
 
