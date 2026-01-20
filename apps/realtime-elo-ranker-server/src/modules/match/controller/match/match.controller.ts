@@ -18,17 +18,17 @@ export class MatchController {
 
     @Post()
     @HttpCode(200)
-    createMatch(@Body() createMatchDto: CreateMatchDto): MatchResultDto {
+    async createMatch(@Body() createMatchDto: CreateMatchDto): Promise<MatchResultDto> {
         const matchModel = this.matchService.convertToModel(createMatchDto);
-        const winnerPlayerExist = this.playerService.checkIfPlayerExists(matchModel.getWinnerId());
-        const loserPlayerExist = this.playerService.checkIfPlayerExists(matchModel.getLoserId());
+        const winnerPlayerExist = await this.playerService.checkIfPlayerExists(matchModel.getWinnerId());
+        const loserPlayerExist = await this.playerService.checkIfPlayerExists(matchModel.getLoserId());
         if (!winnerPlayerExist || !loserPlayerExist) {
             const error = this.errorService.createError(422, "Soit le gagnant, soit le perdant indiqué n'existe pas.");
             throw new CustomHttpException(error.getCode(), error.getError().message);
         }
-        this.matchService.updatePlayerRanks(matchModel);
-        const winnerPlayer = this.playerService.findPlayerById(matchModel.getWinnerId());
-        const loserPlayer = this.playerService.findPlayerById(matchModel.getLoserId());
+        await this.matchService.updatePlayerRanks(matchModel);
+        const winnerPlayer = await this.playerService.findPlayerByIdInDB(matchModel.getWinnerId());
+        const loserPlayer = await this.playerService.findPlayerByIdInDB(matchModel.getLoserId());
         return {
             winner: winnerPlayer?.convertToDto(),
             loser: loserPlayer?.convertToDto()

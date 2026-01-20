@@ -17,7 +17,7 @@ export class RankingService {
         this.ranking = [] // cache du ranking
     }
 
-    public getRanking(): PlayerModel[] | ErrorModel {
+    public async getRanking(): Promise<PlayerModel[] | ErrorModel> {
         // const needUpdateRanking: boolean = this.ranking.length !== this.playerService.getPlayerCount(); 
         // if (needUpdateRanking) {
         //     if (allPlayers instanceof ErrorModel) {
@@ -27,7 +27,7 @@ export class RankingService {
         // if (this.ranking.length === 0) {
         //     return this.errorService.createError(404, "Le classement n'est pas disponible car aucun joueur n'existe");
         // }
-        const allPlayers = this.playerService.getAllPlayers();
+        const allPlayers = await this.playerService.getAllPlayers();
         if (allPlayers instanceof ErrorModel) {
              return this.errorService.createError(404, "Le classement n'est pas disponible car aucun joueur n'existe");
         }

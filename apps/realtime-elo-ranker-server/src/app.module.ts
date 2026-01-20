@@ -25,15 +25,22 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       ignoreErrors: false,
     }),
     TypeOrmModule.forRoot({
-        type: 'mysql',
-        host: 'db-ovh.hikarizsu.fr',
-        port: 3893,
-        username: 'root',
-        password: 'ThIsIsIsntS3cur3d',
-        database: 'TPNESTJS',
+        type: 'sqlite',
+        database: './databases/TPNESTJS.db',
         entities: [__dirname + '/modules/**/*.entity{.ts,.js}'], // ou juste importer les Classe entite 
         synchronize: true,
     }),
   ],
 })
 export class AppModule {}
+// version serveur distant OVH
+// TypeOrmModule.forRoot({
+//     type: 'mysql',
+//     host: 'db-ovh.hikarizsu.fr',
+//     port: 3893,
+//     username: 'root',
+//     password: 'ThIsIsIsntS3cur3d',
+//     database: 'TPNESTJS',
+//     entities: [__dirname + '/modules/**/*.entity{.ts,.js}'], // ou juste importer les Classe entite 
+//     synchronize: true,
+// }),

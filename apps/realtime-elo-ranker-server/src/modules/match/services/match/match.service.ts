@@ -43,9 +43,9 @@ export class MatchService {
         return bestPlayer === player ? (1 - worstPlayerProbability) : worstPlayerProbability;
     }
 
-    public updatePlayerRanks(match: MatchModel): void {
-        const winner = this.playerService.findPlayerById(match.getWinnerId());
-        const loser = this.playerService.findPlayerById(match.getLoserId());
+    public async updatePlayerRanks(match: MatchModel): Promise<void> {
+        const winner = await this.playerService.findPlayerByIdInDB(match.getWinnerId());
+        const loser = await this.playerService.findPlayerByIdInDB(match.getLoserId());
         if (!winner || !loser) {
             console.error('Joueur non trouvé pour le match');
             return;
@@ -59,8 +59,8 @@ export class MatchService {
         const newWinnerRank = Math.round(winner.getRank() + this.K * (winnerResultCef - winnerProbality));
         const newLoserRank = Math.round(loser.getRank() + this.K * (loserResultCef - loserProbality));
 
-        this.playerService.updatePlayerRank(winner, newWinnerRank);
-        this.playerService.updatePlayerRank(loser, newLoserRank);
+        await this.playerService.updatePlayerRankInDb(winner, newWinnerRank);
+        await this.playerService.updatePlayerRankInDb(loser, newLoserRank);
 
         winner.setRank(newWinnerRank);
         loser.setRank(newLoserRank);
