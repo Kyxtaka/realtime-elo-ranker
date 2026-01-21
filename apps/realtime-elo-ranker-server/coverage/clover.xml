@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1768937423430" clover="3.2.0">
-  <project timestamp="1768937423431" name="All files">
-    <metrics statements="321" coveredstatements="252" conditionals="48" coveredconditionals="43" methods="73" coveredmethods="60" elements="442" coveredelements="355" complexity="0" loc="321" ncloc="321" packages="25" files="33" classes="33"/>
+<coverage generated="1768998578762" clover="3.2.0">
+  <project timestamp="1768998578762" name="All files">
+    <metrics statements="302" coveredstatements="267" conditionals="48" coveredconditionals="43" methods="65" coveredmethods="60" elements="415" coveredelements="370" complexity="0" loc="302" ncloc="302" packages="22" files="28" classes="28"/>
     <package name="src">
-      <metrics statements="30" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="3"/>
+      <metrics statements="29" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="3"/>
       <file name="app.controller.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\app.controller.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -14,15 +14,14 @@
         <line num="10" count="1" type="stmt"/>
       </file>
       <file name="app.module.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\app.module.ts">
-        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
       </file>
       <file name="app.service.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\app.service.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -51,34 +50,18 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="custom-http.exception.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\common\exceptions\custom-http.exception.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
         <line num="6" count="5" type="stmt"/>
       </file>
     </package>
-    <package name="src.modules.database">
-      <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="database.module.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\database\database.module.ts">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-      </file>
-      <file name="database.providers.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\database\database.providers.ts">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-      </file>
-    </package>
     <package name="src.modules.error">
-      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="error.module.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\error\error.module.ts">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.error.dto">
@@ -92,7 +75,7 @@
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="error.model.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\error\model\error.model.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="2" count="8" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
         <line num="8" count="30" type="stmt"/>
         <line num="9" count="30" type="stmt"/>
         <line num="13" count="8" type="stmt"/>
@@ -104,9 +87,9 @@
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="error.service.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\error\services\error\error.service.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="2" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="7" count="7" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
       </file>
@@ -127,7 +110,7 @@
       </file>
       <file name="RankingUpdateDto.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\event\dto\RankingUpdateDto.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.match">
@@ -247,36 +230,36 @@
       </file>
     </package>
     <package name="src.modules.player">
-      <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="player.module.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\player.module.ts">
-        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.player.controller">
       <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="player.controller.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\controller\player.controller.ts">
         <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="13" count="5" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="1" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
         <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
@@ -288,30 +271,30 @@
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="createPlayer.dto.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\dto\createPlayer.dto.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
       </file>
       <file name="player.dto.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\dto\player.dto.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="6" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.player.entity">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="player.entity.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\entity\player.entity.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.player.model">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
       <file name="player.model.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\model\player.model.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <line num="4" count="8" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
         <line num="9" count="92" type="stmt"/>
         <line num="10" count="92" type="stmt"/>
         <line num="14" count="43" type="stmt"/>
@@ -325,16 +308,16 @@
       <metrics statements="73" coveredstatements="70" conditionals="18" coveredconditionals="17" methods="17" coveredmethods="15"/>
       <file name="player.service.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\player\service\player.service.ts">
         <metrics statements="73" coveredstatements="70" conditionals="18" coveredconditionals="17" methods="17" coveredmethods="15"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="3" count="6" type="stmt"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
         <line num="18" count="22" type="stmt"/>
         <line num="22" count="22" type="stmt"/>
         <line num="24" count="22" type="stmt"/>
@@ -394,45 +377,45 @@
         <line num="181" count="2" type="stmt"/>
         <line num="183" count="4" type="stmt"/>
         <line num="184" count="2" type="stmt"/>
-        <line num="202" count="6" type="stmt"/>
+        <line num="202" count="7" type="stmt"/>
         <line num="203" count="0" type="stmt"/>
-        <line num="207" count="6" type="stmt"/>
+        <line num="207" count="7" type="stmt"/>
         <line num="208" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.ranking">
-      <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="ranking.module.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\ranking\ranking.module.ts">
-        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.ranking.controller.ranking">
       <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
       <file name="ranking.controller.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\ranking\controller\ranking\ranking.controller.ts">
         <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
         <line num="17" count="8" type="stmt"/>
         <line num="18" count="8" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
         <line num="24" count="3" type="stmt"/>
         <line num="25" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="1" type="stmt"/>
         <line num="28" count="3" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
         <line num="38" count="4" type="stmt"/>
         <line num="40" count="3" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
@@ -452,41 +435,15 @@
         <line num="66" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.modules.ranking.dto">
-      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="rankingEvent.dto.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\ranking\dto\rankingEvent.dto.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-      </file>
-      <file name="rankingUpdate.dto.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\ranking\dto\rankingUpdate.dto.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.modules.ranking.model">
-      <metrics statements="9" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
-      <file name="ranking.model.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\ranking\model\ranking.model.ts">
-        <metrics statements="9" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-      </file>
-    </package>
     <package name="src.modules.ranking.services.ranking">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="ranking.service.ts" path="E:\Coding\IUT\3rdYear\devAv\realtime-elo-ranker\apps\realtime-elo-ranker-server\src\modules\ranking\services\ranking\ranking.service.ts">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="14" count="6" type="stmt"/>
         <line num="15" count="6" type="stmt"/>
         <line num="17" count="6" type="stmt"/>
