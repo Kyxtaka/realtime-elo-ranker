@@ -1,11 +1,24 @@
 # TP dév avance Nathan Randriantsoa
+## Travail réalisé
+
+- Implementation api : realtime-elo-ranker-server
+  - mise en place test (api)
+  - création service singleton (scope.DEFAUT)
+  - séparation logique entity, model, service, controller, dto
+  - implementation de toute les route
+  - implementation système de notrification event (route sse)
+  - ceration d'une bs sqlite (persistance des données)
+- implementation simulateur (demandé en bonus)
+  - envoie de requete à intervalle régulier pour déclarer des match
+
 ## Requirement
 
 - node : v24.11.1 (node 24)
 - npm : v10.8.3 (npm 8)
-- pnpm : v10.25.0 (pnpm 10
-)
+- pnpm : v10.25.0 (pnpm 10)
+
 ## Init du projet nest
+
 ### conflit de compilation de module et resolution de module
 
 problème : depiuis les version recente de node, le nest cli creer des projet typeScript moderne avec de la relosution de module 
