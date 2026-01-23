@@ -8,11 +8,17 @@
   "scripts": {
     "apps:client:dev": "pnpm run --filter ./apps/realtime-elo-ranker-client dev",
     "apps:api-mock:start": "pnpm run --filter ./apps/realtime-elo-ranker-api-mock start",
-    "apps:server:dev": "cd ./apps/realtime-elo-ranker-server && npm run start:dev",
-    "apps:server:start": "cd ./apps/realtime-elo-ranker-server && npm run start",
+    "apps:server:dev": "pnpm run --filter ./apps/realtime-elo-ranker-server start:dev",
+    "apps:server:start": "pnpm run --filter ./apps/realtime-elo-ranker-server start",
+    "apps:server:build": "pnpm run --filter ./apps/realtime-elo-ranker-server build",
+    "apps:server:test": "pnpm run --filter ./apps/realtime-elo-ranker-server test",
+    "apps:server:test:e2e": "pnpm run --filter ./apps/realtime-elo-ranker-server test:e2e",
+    "apps:server:test:cov": "pnpm run --filter ./apps/realtime-elo-ranker-server test:cov",
     "libs:ui:build": "pnpm run --filter ./libs/ui build",
     "libs:ui:test": "pnpm run --filter ./libs/ui test",
-    "docs:swagger:start": "pnpm run --filter ./docs/swagger start"
+    "docs:swagger:start": "pnpm run --filter ./docs/swagger start",
+    "postinstall:better-sqlite3": "cd node_modules/better-sqlite3 && pnpm run install",
+    "apps:simulator:start": "pnpm run --filter ./apps/realtime-elo-ranker-simulator start"
   },
   "devDependencies": {
     "@types/node": "catalog:",
