@@ -31,123 +31,51 @@ TypeORM gère mal la resolution de dépendence pour les driver sqlite et betters
 
 ### Solution : Utiliser pnpm pour le client, npm pour l'api
 
-#### S'assurer que les node_module sont supprimer 
-
-```bash
-# a la racine du projet
-## sur linux
-rm -rf node_modules
-rm -rf apps/realtime-elo-ranker-server/node_modules
-rm pnpm-lock.yaml
-rm  apps/realtime-elo-ranker-server/package-lock.json
-
-## sur windows
-Remove-Item -Force pnpm-lock.yaml
-Remove-Item -Recurse -Force node_modules
-Remove-Item -Recurse -Force apps/realtime-elo-ranker-server/node_modules
-Remove-Item -Force  apps/realtime-elo-ranker-server/package-lock.json
-```
-
-#### Si ce n'est pas fait modier pnpm-workspace.yml
-
-Au debut du fichier remplacer les première ligne (partie package) par : 
-```yml
-packages:
-  - apps/realtime-elo-ranker-client
-  - apps/realtime-elo-ranker-api-mock
-  - libs/*
-  - docs/*
-```
-
 #### Installation des dépendance 
 
 ```bash 
 # a la racine du monorepo
 pnpm install
 pnpm run libs:ui:build
-
-# pnpm add typeorm better-sqlite3 mysql2 class-validator class-transformer @nestjs/event-emitter --filter ./apps/realtime-elo-ranker-server
-
-pnpm add -D @types/node -w # pour vscode (pour ne plus avoir les erreur tu tsconfig)
-
-# installation des dépendance pour l'api (NPM)
-
-cd ./apps/realtime-elo-ranker-server
-npm install
-npm install --save-dev @types/node # pour vscode (pour ne plus avoir les erreur tu tsconfig)
+pnpm run postinstall:better-sqlite3
 ```
 
-*Si le package.json est pas présent* `non nécessaire normalement`
+#### Si besoin - script d'installtion clean
+
 ```bash
-npm install typeorm sqlite3 better-sqlite3 mysql2 class-validator class-transformer @nestjs/event-emitter
-npm install --save-dev @types/node
+# a la racine du projet
+## sur linux
+cleanInstallPkg.sh
+
+## sur windows
+# s'assurer que la politique d'execution de script permet l execution de script powershell
+cleanInstallPkg.ps1
 ```
 
-### Lancement client et api 
-lancement du client
+
+### Lancement client, api et simulateur de match pour l'api 
+
 ```bash
 # sur un nouveau terminal a la racine du projet
 pnpm run apps:client:dev
 
-# pour l api choisir
+# pour l'api 
 pnpm run apps:server:start
 
-#ou
-npm run apps:server:start 
-```
-
-```bash
-# cd ./apps/realtime-elo-ranker-server
-npm run start
+# Pour lancer le simulateur 
+pnpm run apps:simulator:start
 ```
 
 ## Tests
 pour lancer les test
 ```bash
 # Tous les tests
-npm test
-
-# Tests unitaires uniquement
-npm test -- --testPathPattern="\.spec\.ts$" --testPathIgnorePatterns="test/"
+pnpm run apps:server:test
 
 # E2E uniquement
-npm run test:e2e
+pnpm run apps:server:test:e2e
 
 # Avec couverture
-npm test -- --coverage
+pnpm run apps:server:test:cov
 
-# Mode watch complet
-npm test -- --watch
-```
-
-## Simulateur de déclaration de match : 
-Pour lancer le simulateur de match lancer les commande suivante depuis la racine du projet
-```bash
-cd ./apps/realtime-elo-ranker-simulator
-npm install
-node index.js
-```
-
-*si package.json* non existant ou module axios non existant
-```bash
-npm install axios
-```
-
-
-## 
-
-#### note (A skip car pas important) 
-Comme 
-Ajout des dependance au projet (fonctionne pas car typeORM ne trouve pas sqlite)
-Si les fichier package.json est pas la 
-```bash
-pnpm add typeorm better-sqlite3 mysql2 class-validator class-transformer @nestjs/event-emitter --filter ./apps/realtime-elo-ranker-server
-
-pnpm add -D @types/node --filter ./apps/realtime-elo-ranker-server
-```
-
-SI present 
-```bash
-pnpm install
-pnpm rebuild better-sqlite3 --filter ./apps/realtime-elo-ranker-server
 ```

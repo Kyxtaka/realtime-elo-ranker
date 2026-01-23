@@ -4,11 +4,12 @@
   "description": "Simulateur de requete match pour l'api realtime elo ranker server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "@Hikarizsu",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.13.2"
+    "axios": "catalog:"
   }
 }
