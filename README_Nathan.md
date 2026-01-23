@@ -14,10 +14,9 @@
 ## Requirement
 
 - node : v24.11.1 (node 24)
-- npm : v10.8.3 (npm 8)
+- npm : v10.8.3 (npm 10)
 - pnpm : v10.25.0 (pnpm 10)
 - outils de build c++ 
-  - windows : 
 
 ## Init du projet nest
 
