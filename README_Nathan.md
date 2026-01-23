@@ -18,9 +18,11 @@
 - pnpm : v10.25.0 (pnpm 10)
 - outils de build c++ 
 
-## Init du projet nest
+<!-- ## Init du projet nest -->
 
-### conflit de compilation de module et resolution de module
+
+
+<!-- ### conflit de compilation de module et resolution de module
 
 problème : depiuis les version recente de node, le nest cli creer des projet typeScript moderne avec de la relosution de module 
 `esm`, `nodenext` pour une creation d'un projet moderne. Nest JS à été initialement concu en mode `commonJS` que se soit pour le declaration et compilation de module ainsi que la résolution de module. Ce qui entraine par conséquent (avec vs code et quelque configuration de node) des erreur de resolution de module node et donc de compilation. 
@@ -28,9 +30,18 @@ problème : depiuis les version recente de node, le nest cli creer des projet ty
 Pour resoudre ce problème, et offrir un environnement stable qui marcherai sur n'importe quelle machine. J'ai modifier le fichier .ts pour utilise `commonJS` pour la résolution de module.
 
 ### Probleme avec TypeORM, driver sqlite, pnpm 
-TypeORM gère mal la resolution de dépendence pour les driver sqlite et bettersql. Cela est du au fait que typeorm/sqlite ne comprend pas la gestion des dépendence par lien symbolique avec pnpm, il cherche le module natif mais ne le trouve pas du coup.
+TypeORM gère mal la resolution de dépendence pour les driver sqlite et bettersql. Cela est du au fait que typeorm/sqlite ne comprend pas la gestion des dépendence par lien symbolique avec pnpm, il cherche le module natif mais ne le trouve pas du coup. -->
 
 ## Set-up et lancement
+
+### Si necessaire uniquement installation de pnpm
+```bash
+## Windows 
+iwr https://get.pnpm.io/install.ps1 -useb | iex
+
+#Linux 
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
 
 ### Installation des outils de build c# et c++ pour les addons sqlite
 
@@ -44,9 +55,8 @@ npm install --global windows-build-tools
 ```
 
 ### Installation rapide - install normal + resolution build better-sqlite3
-
+a la racine du monorepo
 ```bash
-# a la racine du projet
 ## sur linux
 ./cleanInstallPkg.sh
 
@@ -77,8 +87,8 @@ pnpm run apps:server:start
 pnpm run apps:simulator:start
 ```
 
-## Tests
-pour lancer les test
+## Tests API
+pour lancer les tests de l'API
 ```bash
 # Tous les tests
 pnpm run apps:server:test
@@ -88,5 +98,4 @@ pnpm run apps:server:test:e2e
 
 # Avec couverture
 pnpm run apps:server:test:cov
-
 ```
