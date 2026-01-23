@@ -16,6 +16,8 @@
 - node : v24.11.1 (node 24)
 - npm : v10.8.3 (npm 8)
 - pnpm : v10.25.0 (pnpm 10)
+- outils de build c++ 
+  - windows : 
 
 ## Init du projet nest
 
@@ -29,9 +31,32 @@ Pour resoudre ce problème, et offrir un environnement stable qui marcherai sur 
 ### Probleme avec TypeORM, driver sqlite, pnpm 
 TypeORM gère mal la resolution de dépendence pour les driver sqlite et bettersql. Cela est du au fait que typeorm/sqlite ne comprend pas la gestion des dépendence par lien symbolique avec pnpm, il cherche le module natif mais ne le trouve pas du coup.
 
-### Solution : Utiliser pnpm pour le client, npm pour l'api
+## Set-up et lancement
 
-#### Installation des dépendance 
+### Installation des outils de build c# et c++ pour les addons sqlite
+
+```bash
+#linux
+sudo apt update
+sudo apt install build-essential
+
+#bash windows
+npm install --global windows-build-tools 
+```
+
+### Installation rapide - install normal + resolution build better-sqlite3
+
+```bash
+# a la racine du projet
+## sur linux
+./cleanInstallPkg.sh
+
+## sur windows
+# s'assurer que la politique d'execution de script permet l execution de script powershell
+./cleanInstallPkg.ps1
+```
+
+### Installation des dépendance manuellement - si install rapide skipped
 
 ```bash 
 # a la racine du monorepo
@@ -39,19 +64,6 @@ pnpm install
 pnpm run libs:ui:build
 pnpm run postinstall:better-sqlite3
 ```
-
-#### Si besoin - script d'installtion clean
-
-```bash
-# a la racine du projet
-## sur linux
-cleanInstallPkg.sh
-
-## sur windows
-# s'assurer que la politique d'execution de script permet l execution de script powershell
-cleanInstallPkg.ps1
-```
-
 
 ### Lancement client, api et simulateur de match pour l'api 
 

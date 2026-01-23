@@ -11,3 +11,7 @@ Write-Host "Prune terminé !" -ForegroundColor Green
 Write-Host "Installation des dépendances..." -ForegroundColor Green
 pnpm install
 Write-Host "Installation terminée !" -ForegroundColor Green
+Write-Host "Build de better-sqlite3 via son script postinstall..." -ForegroundColor Yellow
+pnpm run postinstall:better-sqlite3
+Write-Host "Build terminé !" -ForegroundColor Green
+Write-Host "Toutes les opérations sont terminées !" -ForegroundColor Green

@@ -25,3 +25,10 @@ echo -e "\e[32mInstallation des dépendances...\e[0m"
 pnpm install
 
 echo -e "\e[32mInstallation terminée !\e[0m"
+
+echo -e "\e[33mBuild de better-sqlite3 via son script postinstall...\e[0m"
+pnpm run postinstall:better-sqlite3
+
+echo -e "\e[32mBuild terminé !\e[0m"
+
+echo -e "\e[32mToutes les opérations sont terminées !\e[0m"
