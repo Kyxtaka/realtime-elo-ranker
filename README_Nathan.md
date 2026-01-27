@@ -59,10 +59,12 @@ a la racine du monorepo
 ```bash
 ## sur linux
 ./cleanInstallPkg.sh
+pnpm run libs:ui:build
 
 ## sur windows
 # s'assurer que la politique d'execution de script permet l execution de script powershell
 ./cleanInstallPkg.ps1
+pnpm run libs:ui:build
 ```
 
 ### Installation des dépendance manuellement - si install rapide skipped
