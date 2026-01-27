@@ -55,14 +55,17 @@ npm install --global windows-build-tools
 ```
 
 ### Installation rapide - install normal + resolution build better-sqlite3
-a la racine du monorepo
+Ce script permet normalement de supprimer tout les ancien dossier node_module et fichier lock pour ensuite éffectuer une nouvelle installation des node_modules
+
 ```bash
 ## sur linux
 ./cleanInstallPkg.sh
+pnpm run libs:ui:build
 
 ## sur windows
 # s'assurer que la politique d'execution de script permet l execution de script powershell
 ./cleanInstallPkg.ps1
+pnpm run libs:ui:build
 ```
 
 ### Installation des dépendance manuellement - si install rapide skipped
